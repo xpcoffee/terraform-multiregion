@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "WebFetch(domain:developer.hashicorp.com)",
+      "WebSearch",
+      "WebFetch(domain:www.hashicorp.com)",
+      "Bash(chmod:*)",
+      "Bash(./scripts/deploy-stack-local.sh:*)",
+      "Bash(./scripts/destroy-stack-local.sh:*)",
+      "Bash(kind delete cluster --name cluster-us-east-1-dev)",
+      "Bash(docker stop:*)",
+      "Bash(docker rm:*)",
+      "Bash(terraform:*)",
+      "Bash(terraform apply:*)",
+      "Bash(awk:*)",
+      "Bash(xargs -r docker stop)",
+      "Bash(xargs:*)",
+      "Bash(./scripts/deploy-stack.sh:*)",
+      "Bash(tree:*)",
+      "Bash(./scripts/destroy-stack.sh:*)",
+      "Bash(bash:*)",
+      "Bash(./scripts/deploy-component.sh:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
