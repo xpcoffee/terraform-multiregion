@@ -18,7 +18,7 @@ fi
 
 STAMP_DIR="stamps/${STAMP}"
 TFVARS_FILE="deployments/${REGION}-${STAGE}-${STAMP}.tfvars"
-BACKEND_CONFIG="${STAMP_DIR}/backend-${BACKEND_STAGE}.hcl"
+STATE_PATH="states/${STAMP}-${REGION}-${BACKEND_STAGE}.tfstate"
 
 if [ ! -d "$STAMP_DIR" ]; then
     echo "Error: Stamp directory $STAMP_DIR not found"
@@ -30,15 +30,10 @@ if [ ! -f "$TFVARS_FILE" ]; then
     exit 1
 fi
 
-if [ ! -f "$BACKEND_CONFIG" ]; then
-    echo "Error: Backend config $BACKEND_CONFIG not found"
-    exit 1
-fi
-
 cd "$STAMP_DIR"
 
 echo "Initializing ${STAMP}..."
-terraform init -reconfigure -backend-config="backend-${BACKEND_STAGE}.hcl"
+terraform init -reconfigure -backend-config="path=${STATE_PATH}"
 
 echo "Destroying ${STAMP}..."
 terraform destroy -var-file="../../deployments/${REGION}-${STAGE}-${STAMP}.tfvars" -auto-approve
