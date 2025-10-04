@@ -60,13 +60,13 @@ This deploys in order:
 
 ```bash
 # Deploy just the cluster
-./scripts/deploy-component.sh cluster us-east-1 dev dev
+./scripts/deploy-component.sh cluster us-east-1 dev
 
 # Deploy just postgres (requires cluster)
-./scripts/deploy-component.sh postgres us-east-1 dev dev
+./scripts/deploy-component.sh postgres us-east-1 dev
 
 # Deploy just service-1 (requires cluster and postgres)
-./scripts/deploy-component.sh service-1 us-east-1 dev dev
+./scripts/deploy-component.sh service-1 us-east-1 dev
 ```
 
 ## Adding New Regions or Services

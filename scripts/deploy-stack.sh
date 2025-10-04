@@ -21,22 +21,22 @@ echo ""
 
 # Deploy cluster (Platform team)
 echo "Step 1/4: Deploying cluster stamp..."
-"${SCRIPT_DIR}/deploy-component.sh" cluster "${REGION}" "${STAGE}" "${STAGE}"
+"${SCRIPT_DIR}/deploy-component.sh" cluster "${REGION}" "${STAGE}"
 echo ""
 
 # Deploy postgres (Database team)
 echo "Step 2/4: Deploying PostgreSQL stamp..."
-"${SCRIPT_DIR}/deploy-component.sh" postgres "${REGION}" "${STAGE}" "${STAGE}"
+"${SCRIPT_DIR}/deploy-component.sh" postgres "${REGION}" "${STAGE}"
 echo ""
 
 # Deploy service-1 (Service team 1)
 echo "Step 3/4: Deploying service-1 stamp..."
-"${SCRIPT_DIR}/deploy-component.sh" service-1 "${REGION}" "${STAGE}" "${STAGE}"
+"${SCRIPT_DIR}/deploy-component.sh" service-1 "${REGION}" "${STAGE}"
 echo ""
 
 # Deploy service-2 (Service team 2)
 echo "Step 4/4: Deploying service-2 stamp..."
-"${SCRIPT_DIR}/deploy-component.sh" service-2 "${REGION}" "${STAGE}" "${STAGE}"
+"${SCRIPT_DIR}/deploy-component.sh" service-2 "${REGION}" "${STAGE}"
 echo ""
 
 echo "==========================================="

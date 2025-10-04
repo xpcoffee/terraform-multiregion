@@ -1,24 +1,23 @@
 #!/bin/bash
 
 # Destroy a single stamp with tfvars file
-# Usage: destroy-component.sh <stamp> <region> <stage> <backend-stage>
+# Usage: destroy-component.sh <stamp> <region> <stage>
 
 set -e
 
 STAMP=$1
 REGION=$2
 STAGE=$3
-BACKEND_STAGE=$4
 
-if [ -z "$STAMP" ] || [ -z "$REGION" ] || [ -z "$STAGE" ] || [ -z "$BACKEND_STAGE" ]; then
-    echo "Usage: $0 <stamp> <region> <stage> <backend-stage>"
-    echo "Example: $0 cluster us-east-1 dev dev"
+if [ -z "$STAMP" ] || [ -z "$REGION" ] || [ -z "$STAGE" ]; then
+    echo "Usage: $0 <stamp> <region> <stage>"
+    echo "Example: $0 cluster us-east-1 dev"
     exit 1
 fi
 
 STAMP_DIR="stamps/${STAMP}"
 TFVARS_FILE="deployments/${REGION}-${STAGE}-${STAMP}.tfvars"
-STATE_PATH="states/${STAMP}-${REGION}-${BACKEND_STAGE}.tfstate"
+STATE_PATH="states/${STAMP}-${REGION}-${STAGE}.tfstate"
 
 if [ ! -d "$STAMP_DIR" ]; then
     echo "Error: Stamp directory $STAMP_DIR not found"
